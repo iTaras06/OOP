@@ -42,19 +42,19 @@ public:
 		{
 			delete[]model;
 		}
-		model = new char[strlen(m) * 3];
+		model = new char[strlen(m) + 1];
 		strcpy_s(model, strlen(m) + 1, m);
 		if (country != nullptr)
 		{
 			delete[]country;
 		}
-		country = new char[strlen(ctr) * 3];
+		country = new char[strlen(ctr) + 1];
 		strcpy_s(country, strlen(ctr) + 1, ctr);
 		if (color != nullptr)
 		{
 			delete[]color;
 		}
-		color = new char[strlen(clr) * 3];
+		color = new char[strlen(clr) + 1];
 		strcpy_s(color, strlen(clr) + 1, clr);
 		year = y;
 		price = pr;
@@ -65,10 +65,13 @@ public:
 	}
 	void SetModel(const char* m1)
 	{
-		char* copy = new char[strlen(m1) + 1];
-		strcpy_s(copy, strlen(m1) + 1, m1);
-		delete[] model;
-		model = copy;
+		if (model != nullptr)
+		{
+			delete[]model;
+		}
+		model = new char[strlen(m1) + 1];
+		strcpy_s(model, strlen(m1) + 1, m1);
+
 	}
 	char* GetCountry()
 	{
@@ -76,10 +79,12 @@ public:
 	}
 	void SetCountry(const char* ctr1)
 	{
-		char* copy = new char[strlen(ctr1) + 1];
-		strcpy_s(copy, strlen(ctr1) + 1, ctr1);
-		delete[] country;
-		country = copy;
+		if (country != nullptr)
+		{
+			delete[]country;
+		}
+		country = new char[strlen(ctr1) + 1];
+		strcpy_s(country, strlen(ctr1) + 1, ctr1);
 	}
 	char* GetColor()
 	{
@@ -87,10 +92,12 @@ public:
 	}
 	void SetColor(const char* clr1)
 	{
-		char* copy = new char[strlen(clr1) + 1];
-		strcpy_s(copy, strlen(clr1) + 1, clr1);
-		delete[] color;
-		color = copy;
+		if (color != nullptr)
+		{
+			delete[]color;
+		}
+		color = new char[strlen(clr1) + 1];
+		strcpy_s(color, strlen(clr1) + 1, clr1);
 	}
 	int GetYear()
 	{
